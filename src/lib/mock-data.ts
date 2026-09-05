@@ -105,6 +105,72 @@ export const howItWorks = {
   ],
 };
 
+export const revenueModel = {
+  eyebrow: "Revenue model",
+  heading: "We only earn when the farmer earns first.",
+  streams: [
+    {
+      phase: "MVP",
+      title: "Self-Pickup Sourcing",
+      fee: "10% of transaction value",
+      weGet: "Traceable supply without middlemen",
+      farmerGets: "Agreed price paid in full",
+    },
+    {
+      phase: "MVP",
+      title: "Platform Delivery Sourcing",
+      fee: "20% of transaction value",
+      weGet: "Everything in self-pickup, plus end-to-end delivery",
+      farmerGets: "Agreed price paid in full",
+    },
+    {
+      phase: "Phase 2",
+      title: "Credit Referrals",
+      fee: "Fixed fee per loan originated",
+      weGet: "Qualified borrower leads, verified and ready for loan assessment",
+      farmerGets: "Access to formal credit",
+    },
+    {
+      phase: "Phase 3",
+      title: "Input Recommendation",
+      fee: "Cost-per-lead / placement fee",
+      weGet: "Direct access to farmers with confirmed seasonal demand",
+      farmerGets: "Right inputs to fulfill orders and maximize yield",
+    },
+  ],
+};
+
+export const roadmap = {
+  eyebrow: "Roadmap",
+  heading: "From pilot to predictive, one verified season at a time.",
+  stages: [
+    {
+      title: "MVP Pilot",
+      description:
+        "Field Agents onboard the first cohort of smallholders, validating break-even pricing and Telegram alerts in one province.",
+      current: true,
+    },
+    {
+      title: "Operational Scale",
+      description:
+        "Expand Field Agent coverage and verified buyer matching across additional provinces and crop types.",
+      current: false,
+    },
+    {
+      title: "Fintech Bridge",
+      description:
+        "Verified production records become a scorable financial identity, opening formal credit access for smallholders.",
+      current: false,
+    },
+    {
+      title: "Predictive AI",
+      description:
+        "Accumulated seasons of verified data power forward-looking price and yield predictions for every farmer.",
+      current: false,
+    },
+  ],
+};
+
 export const about = {
   eyebrow: "About us",
   heading: "Built for the 1.85 million households the market forgot.",

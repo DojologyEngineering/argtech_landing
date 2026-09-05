@@ -5,6 +5,8 @@ import { Stats } from "@/components/sections/stats";
 import { Features } from "@/components/sections/features";
 import { AppShowcase } from "@/components/sections/app-showcase";
 import { HowItWorks } from "@/components/sections/how-it-works";
+import { RevenueModel } from "@/components/sections/revenue-model";
+import { Roadmap } from "@/components/sections/roadmap";
 import { About } from "@/components/sections/about";
 import { Team } from "@/components/sections/team";
 import { GlobalReach } from "@/components/sections/global-reach";
@@ -22,6 +24,8 @@ export default function Home() {
         <Features />
         <AppShowcase />
         <HowItWorks />
+        <RevenueModel />
+        <Roadmap />
         <About />
         <Team />
         <GlobalReach />
