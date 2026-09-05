@@ -12,7 +12,7 @@ export function HowItWorks() {
 
   return (
     <section id="solutions" className="border-y border-border/70 bg-muted/40">
-      <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
         <ScrollReveal className="mb-16 flex max-w-xl flex-col gap-4">
           <span className="text-xs font-bold tracking-[0.14em] text-accent-foreground uppercase">
             {howItWorks.eyebrow}

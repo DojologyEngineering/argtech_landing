@@ -12,9 +12,9 @@ const icons = { mail: Mail, phone: Phone, telegram: Send };
 
 export function Contact() {
   return (
-    <section id="contact-info" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+    <section id="contact-info" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
       <div className="grid gap-6 lg:grid-cols-[3fr_2fr]">
-        <ScrollReveal>
+        <ScrollReveal className="h-full">
           <ContactForm />
         </ScrollReveal>
 
@@ -66,18 +66,18 @@ export function Contact() {
                 <HoverCard
                   className={
                     isPending
-                      ? "rounded-2xl border border-border bg-card"
-                      : "group rounded-2xl border border-border bg-card transition-colors hover:border-primary/40"
+                      ? "min-h-20 rounded-2xl border border-border bg-card"
+                      : "group min-h-20 rounded-2xl border border-border bg-card transition-colors hover:border-primary/40"
                   }
                 >
                   {isPending ? (
-                    <div className="flex items-center gap-4 p-5">{content}</div>
+                    <div className="flex h-full items-center gap-4 p-5">{content}</div>
                   ) : (
                     <Link
                       href={method.href}
                       target={method.href.startsWith("http") ? "_blank" : undefined}
                       rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="flex items-center gap-4 p-5"
+                      className="flex h-full items-center gap-4 p-5"
                     >
                       {content}
                     </Link>

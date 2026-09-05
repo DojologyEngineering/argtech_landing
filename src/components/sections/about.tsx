@@ -6,7 +6,7 @@ import { about } from "@/lib/mock-data";
 
 export function About() {
   return (
-    <section id="about" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+    <section id="about" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
       <div className="grid gap-14 md:grid-cols-[1fr_1fr]">
         <ScrollReveal className="flex flex-col gap-6">
           <span className="text-xs font-bold tracking-[0.14em] text-accent-foreground uppercase">
@@ -15,6 +15,9 @@ export function About() {
           <h2 className="font-heading text-3xl leading-tight font-semibold text-balance text-foreground md:text-4xl">
             {about.heading}
           </h2>
+          <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
+            {about.recognition}
+          </span>
           <div className="flex flex-col gap-4">
             {about.body.map((paragraph, i) => (
               <p key={i} className="text-[15px] leading-relaxed text-muted-foreground">

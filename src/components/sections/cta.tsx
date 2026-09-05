@@ -7,7 +7,7 @@ import { cta } from "@/lib/mock-data";
 
 export function CTA() {
   return (
-    <section id="contact" className="mx-auto max-w-6xl px-6 pb-24 md:pb-32">
+    <section id="contact" className="mx-auto max-w-6xl px-6 pb-16 md:pb-20">
       <ScrollReveal variants={fadeScale}>
         <div className="flex flex-col items-center gap-6 rounded-3xl bg-primary px-8 py-16 text-center text-primary-foreground md:py-20">
           <h2 className="font-heading max-w-2xl text-3xl leading-tight font-semibold text-balance md:text-4xl">

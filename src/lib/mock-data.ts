@@ -12,103 +12,122 @@ export const navLinks = [
 ];
 
 export const hero = {
-  eyebrow: "Precision agriculture platform",
-  headline: "Every acre, measured.\nEvery decision, informed.",
+  eyebrow: "Empowering Cambodia's smallholder farmers",
+  headline: "Know your break-even.\nBefore you sell.",
   subhead:
-    "ARG TECH fuses in-field sensors, satellite imagery, and weather modeling into one live map of your operation — so irrigation, fertilizer, and harvest timing are called from what's happening in the field right now, not last week's forecast.",
-  primaryCta: { label: "Book a field demo", href: "#contact" },
-  secondaryCta: { label: "Watch a 2-min overview", href: "#" },
-  fieldName: "North Ridge Field — Zone Map",
+    "ARG TECH gives Cambodia's 1.85 million smallholder farming households the cost data they've never had — a verified break-even price before harvest, delivered in Khmer over Telegram, so the middleman doesn't set the price alone.",
+  primaryCta: { label: "Talk to the team", href: "#contact" },
+  secondaryCta: { label: "See how it works", href: "#solutions" },
+  fieldName: "Kampong Speu — Farmer Zones",
   sensorReadout: {
-    zone: "Zone 12 · Sensor 04",
-    value: "34% soil moisture",
-    note: "Irrigation recommended in 6 hrs",
+    zone: "Zone 12 · Batch 04",
+    value: "Break-even $0.42/kg",
+    note: "3¢ above market — hold 2 days",
   },
 };
 
 export const stats = [
-  { value: 12400, suffix: "+", label: "Acres under active monitoring" },
-  { value: 18, suffix: "%", label: "Avg. yield lift for early adopters" },
-  { value: 340, suffix: "+", label: "Farms onboarded to date" },
+  {
+    value: 1.85,
+    decimals: 2,
+    prefix: "",
+    suffix: "M+",
+    label: "Smallholder farming households in Cambodia",
+  },
+  {
+    value: 3.3,
+    decimals: 1,
+    prefix: "$",
+    suffix: "B",
+    label: "Fruit & vegetable market, growing faster than any other crop",
+  },
+  {
+    value: 9.4,
+    decimals: 1,
+    prefix: "",
+    suffix: "%",
+    label: "of formal finance reaches smallholders today",
+  },
 ];
 
 export const features = {
-  eyebrow: "Platform",
-  heading: "Everything your agronomy team needs, in one view.",
+  eyebrow: "The platform",
+  heading: "One verified number: a farmer's break-even price.",
   featured: {
-    title: "Predictive yield modeling",
+    title: "ROI Engine",
     description:
-      "Soil, weather, and satellite NDVI data combine into a per-zone yield forecast six weeks out — so under-performing zones get attention while there's still time to change the outcome.",
+      "Every cost entry a Field Agent logs meets live market price references to calculate a definitive break-even floor — the one number that tells a farmer whether today's offer is a profit or a loss.",
   },
   items: [
     {
-      title: "Soil & climate sensing",
+      title: "Field Capture",
       description:
-        "In-ground sensors track moisture, temperature, and nutrients across every field zone, updated hourly.",
+        "Field Agents log crop cost data during routine farm visits. No extra trips, no farmer effort — every visit builds a verified production record.",
     },
     {
-      title: "Satellite field imagery",
+      title: "Khmer Telegram Alerts",
       description:
-        "Weekly NDVI passes flag crop stress before it's visible from the road.",
+        "Break-even price, overspend warnings, and the right time to sell — delivered in Khmer over Telegram. No app to download, no new habit to learn.",
     },
     {
-      title: "Automated irrigation scheduling",
+      title: "Verified Buyer Matching",
       description:
-        "Recommendations sync directly to the irrigation controllers you already run.",
+        "Verified harvests are matched directly to purchase orders from distributors, restaurants, and supermarkets across Cambodia.",
     },
   ],
 };
 
 export const appShowcase = {
-  eyebrow: "Mobile app",
-  heading: "Your fields, in your pocket.",
-  body: "Check zone health, irrigation alerts, and yield forecasts from wherever you are — the ARG TECH app keeps the field on your phone, not just at your desk.",
+  eyebrow: "Field Agent app",
+  heading: "The tool that builds every farmer's verified record.",
+  body: "Farmers don't need to download anything — Field Agents capture cost data, farmer profiles, and crop cycles from the field. Every entry feeds the ROI Engine and becomes part of a farmer's verified production history.",
 };
 
 export const howItWorks = {
   eyebrow: "How it works",
-  heading: "From raw field data to a decision you can act on.",
+  heading: "From a farm visit to a price a farmer can trust.",
   steps: [
     {
-      title: "Deploy sensors",
+      title: "Field Capture",
       description:
-        "Place soil and climate sensors across your field zones — most farms are fully wired in under a day.",
+        "A Field Agent logs cost data during a routine visit — seed, fertilizer, labor. No extra trips, no extra work for the farmer.",
     },
     {
-      title: "Data streams in",
+      title: "ROI Engine runs",
       description:
-        "Sensor readings, satellite passes, and weather forecasts sync automatically, every hour.",
+        "Accumulated cost data meets live market price references to calculate a definitive break-even price for that harvest.",
     },
     {
-      title: "Get zone-level guidance",
+      title: "Alert & match",
       description:
-        "ARG TECH flags what needs attention and recommends irrigation, fertilizer, and harvest timing by zone.",
+        "The farmer gets a Khmer-language Telegram alert with their break-even price — and their verified harvest is matched to a real purchase order.",
     },
   ],
 };
 
 export const about = {
   eyebrow: "About us",
-  heading: "Built by people who grew up walking these fields.",
+  heading: "Built for the 1.85 million households the market forgot.",
+  recognition: "OneEarth NextGen Innovator 2026",
   body: [
-    "ARG TECH started with agronomists and engineers who were tired of choosing between good data and usable tools. Most farm software is built by one side or the other — we build it with both in the room.",
-    "We're a small team based in Phnom Penh, Cambodia, working directly with growers each season to keep the platform grounded in what actually happens between planting and harvest.",
+    "Cambodia's fruit and vegetable market is worth over $3.3 billion and growing faster than any other crop category — yet the smallholders growing it absorb 100% of the production risk with zero verifiable cost data. Every sale is a guess.",
+    "ARG TECH isn't another marketplace app farmers won't use. We work through what they already use — Telegram — and the people they already trust, starting with fruit and vegetable smallholders in Cambodia.",
   ],
   values: [
     {
-      title: "Field-tested",
+      title: "No extra burden",
       description:
-        "Every feature ships after real seasons in real fields, not just lab data.",
+        "Field Agents capture data during visits farmers already expect. No new app, no new habit.",
     },
     {
       title: "Farmer-first",
       description:
-        "We build for the people making the decisions, not just the dashboards they use.",
+        "Every feature exists to put a number in a farmer's hands before they negotiate, not after.",
     },
     {
-      title: "Built to last",
+      title: "Built on trust",
       description:
-        "Hardware and software designed for a decade in the field, not a demo day.",
+        "We grow through the community networks and NGO partners farmers already rely on — not cold outreach.",
     },
   ],
 };
@@ -121,19 +140,19 @@ export const team = {
       name: "Thai Sodalin",
       role: "Tech & Product Lead",
       title: "IT Business Analyst at Dojology Group",
-      photo: "/dalin.png",
+      photo: "/team/dalin.png",
     },
     {
       name: "Kumari Laxmi Sharma",
       role: "Strategy & Delivery Lead",
       title: "Project Manager at Dojology Group",
-      photo: "/laxmi.png",
+      photo: "/team/laxmi.png",
     },
     {
       name: "Pen Lymeng",
       role: "Technical Advisor",
       title: "Founder & CEO of Dojology Group",
-      photo: "/meng.png",
+      photo: "/team/meng.png",
     },
   ],
 };
@@ -141,29 +160,29 @@ export const team = {
 export const testimonials = [
   {
     quote:
-      "[Placeholder quote] We caught a irrigation problem in the north field three days before we would have noticed it walking the rows.",
+      "[Placeholder quote] For the first time, I knew my break-even price before the buyer named his.",
     name: "[Name]",
-    role: "[Title, Farm name]",
+    role: "[Farmer, Province]",
   },
   {
     quote:
-      "[Placeholder quote] The yield forecast has been within a few percent of actual harvest two seasons running.",
+      "[Placeholder quote] The Telegram alert told me to wait three days — that alone covered our fertilizer cost.",
     name: "[Name]",
-    role: "[Title, Farm name]",
+    role: "[Farmer, Province]",
   },
 ];
 
 export const cta = {
-  heading: "See ARG TECH running on your own fields.",
+  heading: "See the ROI Engine on a real harvest.",
   subhead:
-    "Book a 30-minute walkthrough — we'll map one of your fields live on the call.",
-  primaryCta: { label: "Book a field demo", href: "#contact" },
+    "Talk to the team — we'll walk through how break-even pricing works for your province.",
+  primaryCta: { label: "Talk to the team", href: "#contact" },
 };
 
 export const contact = {
   eyebrow: "Get in touch",
   heading: "Talk to the team.",
-  body: "Questions about the platform, pricing, or piloting on your own fields — reach us however's easiest.",
+  body: "Questions about the platform, partnering as an NGO, or joining the pilot — reach us however's easiest.",
   methods: [
     {
       label: "Email",

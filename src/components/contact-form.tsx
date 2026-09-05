@@ -32,7 +32,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 md:p-8">
+    <div className="relative h-full overflow-hidden rounded-2xl border border-border bg-card p-6 md:p-8">
       <AnimatePresence mode="wait">
         {status === "success" ? (
           <motion.div

@@ -10,7 +10,7 @@ const pattern = [
 const tiles = pattern.map((healthy, i) => ({
   healthy: Boolean(healthy),
   zone: i + 1,
-  moisture: healthy ? 38 + ((i * 7) % 20) : 14 + ((i * 5) % 12),
+  margin: healthy ? 4 + ((i * 3) % 14) : -(2 + ((i * 2) % 8)),
 }));
 
 export function FieldGrid() {
@@ -29,7 +29,8 @@ export function FieldGrid() {
                 transition={{ duration: 0.15 }}
                 className="pointer-events-none absolute -top-8 left-1/2 z-10 -translate-x-1/2 rounded-md bg-foreground px-2 py-1 text-[10px] font-bold whitespace-nowrap text-background shadow-sm"
               >
-                Zone {tile.zone} · {tile.moisture}%
+                Zone {tile.zone} · {tile.margin > 0 ? "+" : ""}
+                {tile.margin}% vs. break-even
               </motion.div>
             )}
           </AnimatePresence>

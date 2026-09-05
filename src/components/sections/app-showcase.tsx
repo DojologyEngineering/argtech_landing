@@ -5,14 +5,14 @@ import { HoverCard } from "@/components/motion/hover-card";
 import { appShowcase } from "@/lib/mock-data";
 
 const gallery = [
-  { src: "/app_3d.png", alt: "ARG TECH app, 3D render" },
-  { src: "/app_hand.png", alt: "ARG TECH app held in hand" },
-  { src: "/app.png", alt: "ARG TECH app screen" },
+  { src: "/app/app_3d.png", alt: "ARG TECH app, 3D render" },
+  { src: "/app/app_hand.png", alt: "ARG TECH app held in hand" },
+  { src: "/app/app.png", alt: "ARG TECH app screen" },
 ];
 
 export function AppShowcase() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+    <section className="mx-auto max-w-6xl px-6 py-16 md:py-20">
       <ScrollReveal className="mb-14 flex max-w-xl flex-col gap-4">
         <span className="text-xs font-bold tracking-[0.14em] text-accent-foreground uppercase">
           {appShowcase.eyebrow}

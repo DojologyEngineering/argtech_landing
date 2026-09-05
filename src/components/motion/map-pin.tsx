@@ -1,19 +1,18 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 
 interface MapPinProps {
   xPct: number;
   yPct: number;
   label?: string;
+  href?: string;
 }
 
-export function MapPin({ xPct, yPct, label }: MapPinProps) {
-  return (
-    <div
-      className="absolute -translate-x-1/2 -translate-y-1/2"
-      style={{ left: `${xPct}%`, top: `${yPct}%` }}
-    >
+export function MapPin({ xPct, yPct, label, href }: MapPinProps) {
+  const content = (
+    <>
       <span className="relative flex h-3 w-3">
         <motion.span
           className="absolute inline-flex h-full w-full rounded-full bg-primary"
@@ -27,6 +26,36 @@ export function MapPin({ xPct, yPct, label }: MapPinProps) {
           {label}
         </div>
       )}
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={label ? `Open ${label} in Google Maps` : "Open in Google Maps"}
+        className="group absolute -translate-x-1/2 -translate-y-1/2"
+        style={{ left: `${xPct}%`, top: `${yPct}%` }}
+      >
+        <motion.span
+          whileHover={{ scale: 1.3 }}
+          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="block"
+        >
+          {content}
+        </motion.span>
+      </Link>
+    );
+  }
+
+  return (
+    <div
+      className="absolute -translate-x-1/2 -translate-y-1/2"
+      style={{ left: `${xPct}%`, top: `${yPct}%` }}
+    >
+      {content}
     </div>
   );
 }

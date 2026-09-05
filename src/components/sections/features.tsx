@@ -9,7 +9,7 @@ const supportingIcons = [Gauge, Satellite, Droplets];
 
 export function Features() {
   return (
-    <section id="platform" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+    <section id="platform" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
       <ScrollReveal className="mb-14 flex max-w-xl flex-col gap-4">
         <span className="text-xs font-bold tracking-[0.14em] text-accent-foreground uppercase">
           {features.eyebrow}

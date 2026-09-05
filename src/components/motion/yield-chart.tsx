@@ -4,16 +4,16 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
 
 const bars = [
-  { week: "Wk 1", height: 30, value: "61%" },
-  { week: "Wk 2", height: 42, value: "64%" },
-  { week: "Wk 3", height: 38, value: "63%" },
-  { week: "Wk 4", height: 55, value: "70%" },
-  { week: "Wk 5", height: 48, value: "67%" },
-  { week: "Wk 6", height: 64, value: "76%" },
-  { week: "Wk 7", height: 58, value: "73%" },
-  { week: "Wk 8", height: 72, value: "81%" },
-  { week: "Wk 9", height: 66, value: "78%" },
-  { week: "Wk 10", height: 84, value: "89%" },
+  { week: "Batch 1", height: 30, value: "61%" },
+  { week: "Batch 2", height: 42, value: "64%" },
+  { week: "Batch 3", height: 38, value: "63%" },
+  { week: "Batch 4", height: 55, value: "70%" },
+  { week: "Batch 5", height: 48, value: "67%" },
+  { week: "Batch 6", height: 64, value: "76%" },
+  { week: "Batch 7", height: 58, value: "73%" },
+  { week: "Batch 8", height: 72, value: "81%" },
+  { week: "Batch 9", height: 66, value: "78%" },
+  { week: "Batch 10", height: 84, value: "89%" },
 ];
 
 export function YieldChart() {

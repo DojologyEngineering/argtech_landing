@@ -34,7 +34,7 @@ function AnimatedHeadline({ text }: { text: string }) {
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 py-20 md:grid-cols-[1.15fr_1fr] md:py-28">
+      <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 py-14 md:grid-cols-[1.15fr_1fr] md:py-20">
         <div className="flex flex-col gap-7">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -110,11 +110,11 @@ export function Hero() {
             <div className="flex items-center gap-5 text-xs font-semibold text-muted-foreground">
               <span className="flex items-center gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-sm bg-primary/70" />
-                Healthy
+                Above break-even
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-sm bg-accent-foreground/50" />
-                Needs attention
+                Below break-even
               </span>
             </div>
           </div>
