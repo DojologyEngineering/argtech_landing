@@ -33,16 +33,16 @@ function AnimatedHeadline({ text }: { text: string }) {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section id="hero" className="relative overflow-hidden">
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 py-14 md:grid-cols-[1.15fr_1fr] md:py-20">
         <div className="flex flex-col gap-7">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="flex items-center gap-2.5 text-xs font-bold tracking-[0.14em] text-accent-foreground uppercase"
+            className="flex items-center gap-2.5 text-xs font-bold tracking-[0.14em] text-primary uppercase"
           >
-            <span className="h-px w-5 bg-accent-foreground/60" />
+            <span className="h-px w-5 bg-primary/60" />
             {hero.eyebrow}
           </motion.div>
 

@@ -32,6 +32,7 @@ export const stats = [
     decimals: 2,
     prefix: "",
     suffix: "M+",
+    visual: undefined as "ring" | undefined,
     label: "Smallholder farming households in Cambodia",
   },
   {
@@ -39,6 +40,7 @@ export const stats = [
     decimals: 1,
     prefix: "$",
     suffix: "B",
+    visual: undefined as "ring" | undefined,
     label: "Fruit & vegetable market, growing faster than any other crop",
   },
   {
@@ -46,6 +48,7 @@ export const stats = [
     decimals: 1,
     prefix: "",
     suffix: "%",
+    visual: "ring" as const,
     label: "of formal finance reaches smallholders today",
   },
 ];
@@ -207,18 +210,21 @@ export const team = {
       role: "Tech & Product Lead",
       title: "IT Business Analyst at Dojology Group",
       photo: "/team/dalin.png",
+      linkedin: "https://www.linkedin.com/in/sodalin-thai/",
     },
     {
       name: "Kumari Laxmi Sharma",
       role: "Strategy & Delivery Lead",
       title: "Project Manager at Dojology Group",
       photo: "/team/laxmi.png",
+      linkedin: "https://www.linkedin.com/in/kumari-laxmi-sharma-682433187",
     },
     {
       name: "Pen Lymeng",
       role: "Technical Advisor",
       title: "Founder & CEO of Dojology Group",
       photo: "/team/meng.png",
+      linkedin: "https://www.linkedin.com/in/penlymeng/",
     },
   ],
 };

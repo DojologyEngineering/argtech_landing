@@ -11,7 +11,7 @@ export function GlobalReach() {
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <ScrollReveal className="flex max-w-xl flex-col gap-4">
-            <span className="text-xs font-bold tracking-[0.14em] text-accent-foreground uppercase">
+            <span className="text-xs font-bold tracking-[0.14em] text-primary uppercase">
               Where we operate
             </span>
             <h2 className="font-heading text-3xl leading-tight font-semibold text-balance text-foreground md:text-4xl">

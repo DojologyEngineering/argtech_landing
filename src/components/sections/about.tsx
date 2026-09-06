@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { HoverCard } from "@/components/motion/hover-card";
 import { about } from "@/lib/mock-data";
 
 export function About() {
@@ -9,7 +11,7 @@ export function About() {
     <section id="about" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
       <div className="grid gap-14 md:grid-cols-[1fr_1fr]">
         <ScrollReveal className="flex flex-col gap-6">
-          <span className="text-xs font-bold tracking-[0.14em] text-accent-foreground uppercase">
+          <span className="text-xs font-bold tracking-[0.14em] text-primary uppercase">
             {about.eyebrow}
           </span>
           <h2 className="font-heading text-3xl leading-tight font-semibold text-balance text-foreground md:text-4xl">
@@ -28,6 +30,18 @@ export function About() {
         </ScrollReveal>
 
         <div className="flex flex-col gap-8">
+          <ScrollReveal delay={0.05}>
+            <HoverCard className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border">
+              <Image
+                src="/app/dashboard1.png"
+                alt="The ARG TECH dashboard"
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 40vw, 90vw"
+              />
+            </HoverCard>
+          </ScrollReveal>
+
           {about.values.map((value, i) => (
             <ScrollReveal key={value.title} delay={i * 0.08}>
               <motion.div
@@ -37,8 +51,8 @@ export function About() {
               >
                 <motion.span
                   variants={{
-                    rest: { color: "var(--accent-foreground)", x: 0 },
-                    hover: { color: "var(--primary)", x: 2 },
+                    rest: { color: "var(--primary)", x: 0 },
+                    hover: { color: "var(--accent)", x: 2 },
                   }}
                   transition={{ duration: 0.2 }}
                   className="font-heading text-lg"

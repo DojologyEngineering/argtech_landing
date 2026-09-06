@@ -24,7 +24,7 @@ export function YieldChart() {
   return (
     <div
       ref={ref}
-      className="mt-auto flex h-24 items-end gap-2 rounded-lg bg-primary-foreground/[0.06] p-5"
+      className="mt-auto flex h-40 items-end gap-2 rounded-lg bg-primary-foreground/[0.06] p-5"
     >
       {bars.map((bar, i) => (
         <div
