@@ -30,7 +30,14 @@ export function Navbar() {
         style={{ height: headerHeight }}
         className="mx-auto flex max-w-6xl items-center justify-between px-6"
       >
-        <Link href="#hero" className="cursor-pointer">
+        <Link
+          href="#hero"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="cursor-pointer"
+        >
           <Logo />
         </Link>
 

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { MapPin, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/logo";
-import { BackToTop } from "@/components/motion/back-to-top";
 import { footer } from "@/lib/mock-data";
 
 // Fixed brand green/cream (not the theme-swappable --primary/--foreground
@@ -55,18 +54,15 @@ export function Footer() {
           <span className="text-sm text-[oklch(95.8%_0.012_91.5)]/50">
             {footer.copyright}
           </span>
-          <div className="flex flex-wrap items-start gap-4 sm:items-center sm:gap-6">
-            <Link
-              href={footer.location.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-start gap-1.5 text-sm text-[oklch(95.8%_0.012_91.5)]/50 transition-colors hover:text-[oklch(95.8%_0.012_91.5)]"
-            >
-              <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-              {footer.location.value}
-            </Link>
-            <BackToTop />
-          </div>
+          <Link
+            href={footer.location.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start gap-1.5 text-sm text-[oklch(95.8%_0.012_91.5)]/50 transition-colors hover:text-[oklch(95.8%_0.012_91.5)]"
+          >
+            <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+            {footer.location.value}
+          </Link>
         </div>
       </div>
     </footer>
