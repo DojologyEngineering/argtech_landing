@@ -223,7 +223,7 @@ export const team = {
       name: "Pen Lymeng",
       role: "Technical Advisor",
       title: "Founder & CEO of Dojology Group",
-      photo: "/team/meng.png",
+      photo: "/team/meng.jpg",
       linkedin: "https://www.linkedin.com/in/penlymeng/",
     },
   ],
