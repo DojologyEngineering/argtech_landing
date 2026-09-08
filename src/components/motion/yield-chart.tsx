@@ -32,6 +32,7 @@ export function YieldChart() {
           className="relative flex h-full w-full items-end"
           onMouseEnter={() => setHovered(i)}
           onMouseLeave={() => setHovered(null)}
+          onClick={() => setHovered(i)}
         >
           <AnimatePresence>
             {hovered === i && (

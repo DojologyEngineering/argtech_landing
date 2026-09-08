@@ -37,7 +37,9 @@ export function FieldGrid() {
           <motion.div
             onHoverStart={() => setHovered(i)}
             onHoverEnd={() => setHovered(null)}
+            onClick={() => setHovered(i)}
             whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 1.15 }}
             transition={{ duration: 0.15 }}
             className={
               tile.healthy

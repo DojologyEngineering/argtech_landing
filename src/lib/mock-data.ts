@@ -8,7 +8,8 @@ export const navLinks = [
   { label: "Platform", href: "#platform" },
   { label: "Solutions", href: "#solutions" },
   { label: "About", href: "#about" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Our Team", href: "#team" },
+  { label: "Contact Us", href: "#contact-info" },
 ];
 
 export const hero = {
