@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Home, Sprout, Users, Mail } from "lucide-react";
+import { Home, Sprout, Users, Send } from "lucide-react";
 import { Press } from "@/components/motion/press";
 import { cn } from "@/lib/utils";
 import { useContent } from "@/lib/i18n/context";
@@ -13,7 +13,7 @@ export function MobileBottomNav() {
     { id: "hero", label: ui.mobileNav.home, icon: Home },
     { id: "platform", label: ui.mobileNav.platform, icon: Sprout },
     { id: "team", label: ui.mobileNav.team, icon: Users },
-    { id: "contact-info", label: ui.mobileNav.contact, icon: Mail },
+    { id: "contact-info", label: ui.mobileNav.contact, icon: Send },
   ];
   const [active, setActive] = useState("hero");
 
