@@ -5,7 +5,6 @@ import { AnimatePresence, motion, type Variants } from "motion/react";
 import { LogoMark } from "@/components/logo";
 import { useContent } from "@/lib/i18n/context";
 
-const SESSION_KEY = "argtech-intro-shown";
 const WORDMARK = "ARG TECH";
 
 const FILL_MS = 1700;
@@ -25,26 +24,30 @@ const letter: Variants = {
 
 export function IntroLoader() {
   const { ui } = useContent();
-  const [show, setShow] = useState(false);
+  // Defaults to visible: the inline INTRO_GATE_SCRIPT in layout.tsx has
+  // already made the real (pre-paint) decision by the time this component
+  // hydrates, via the `no-intro` class on <html> + a CSS rule that hides
+  // #intro-loader instantly. Starting `show` at true just keeps this
+  // component's first render consistent with what was already server-sent,
+  // avoiding a hydration mismatch — it does not control initial visibility.
+  const [show, setShow] = useState(true);
   const [exiting, setExiting] = useState(false);
   const [progress, setProgress] = useState(0);
   const [captionIndex, setCaptionIndex] = useState(0);
   const decided = useRef(false);
 
-  // One-time decision: should this session see the intro at all?
-  // Guarded by a ref (not just the sessionStorage flag) so React Strict
-  // Mode's dev-only mount→cleanup→mount doesn't let the second pass see
-  // "already shown" and silently skip.
+  // Mirrors the gate script's decision so React unmounts cleanly instead of
+  // quietly running a full (CSS-hidden, invisible) animation timer for a
+  // session that should never have seen the intro. Guarded by a ref (not
+  // just re-reading the class) so React Strict Mode's dev-only
+  // mount→cleanup→mount can't double-run this.
   useEffect(() => {
     if (decided.current) return;
     decided.current = true;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const alreadyShown = sessionStorage.getItem(SESSION_KEY);
-    if (reduced || alreadyShown) return;
-
-    sessionStorage.setItem(SESSION_KEY, "1");
-    setShow(true);
+    const skip = reduced || document.documentElement.classList.contains("no-intro");
+    if (skip) setShow(false);
   }, []);
 
   // Timer/animation lifecycle, kept in its own effect so it always runs
@@ -85,6 +88,7 @@ export function IntroLoader() {
     <AnimatePresence>
       {show && (
         <motion.div
+          id="intro-loader"
           initial={{ clipPath: "circle(150% at 50% 50%)" }}
           animate={{ clipPath: exiting ? "circle(0% at 50% 50%)" : "circle(150% at 50% 50%)" }}
           exit={{ opacity: 0 }}

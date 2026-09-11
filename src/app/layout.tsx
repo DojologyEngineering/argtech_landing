@@ -1,10 +1,31 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono, Bricolage_Grotesque, Kantumruy_Pro } from "next/font/google";
 import { MotionConfig } from "motion/react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { LanguageProvider } from "@/lib/i18n/context";
 import { IntroLoader } from "@/components/motion/intro-loader";
 import "./globals.css";
+
+// Runs before hydration (next/script "beforeInteractive") — the same
+// technique that prevents a flash-of-wrong-theme, applied here so the
+// decision to show/skip the intro loader happens before the browser's
+// first paint. Without this, the loader's visibility was decided inside a
+// useEffect, which only runs *after* the real page has already painted —
+// on a slow connection that reads as "blank, then real page, then the
+// loader pops in on top," which is backwards.
+const INTRO_GATE_SCRIPT = `
+try {
+  var KEY = "argtech-intro-shown";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var seen = sessionStorage.getItem(KEY);
+  if (reduced || seen) {
+    document.documentElement.classList.add("no-intro");
+  } else {
+    sessionStorage.setItem(KEY, "1");
+  }
+} catch (e) {}
+`;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,6 +65,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${bricolageGrotesque.variable} ${kantumruyPro.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <Script id="intro-gate" strategy="beforeInteractive">
+          {INTRO_GATE_SCRIPT}
+        </Script>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <LanguageProvider>
             <MotionConfig reducedMotion="user">

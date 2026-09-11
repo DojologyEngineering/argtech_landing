@@ -35,11 +35,13 @@ export function Hero() {
   const { hero, ui } = useContent();
   return (
     <section id="hero" className="relative overflow-hidden">
-      {/* Continues the dotted texture that peeks through the desktop
-          header's rounded corners, fading out before the fold. */}
+      {/* Ambient dotted texture, fading out before the fold. On desktop
+          this continues the same grid that peeks through the header's
+          rounded corners; on mobile there's no notch to match phase with,
+          so it just runs as its own decorative flourish. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 hidden h-full lg:block"
+        className="pointer-events-none absolute inset-x-0 top-0 h-full"
         style={{
           backgroundImage: "radial-gradient(var(--accent) 1px, transparent 1px)",
           backgroundSize: "12px 12px",
