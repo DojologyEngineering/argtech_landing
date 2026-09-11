@@ -57,7 +57,7 @@ export function YieldChart() {
             }}
             whileHover={{ scaleX: 1.15 }}
             style={{ opacity: 0.35 + (i / bars.length) * 0.65 }}
-            className="w-full origin-bottom rounded-t-sm bg-accent"
+            className="w-full origin-bottom rounded-t-sm bg-primary-foreground"
           />
         </div>
       ))}

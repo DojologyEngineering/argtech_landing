@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { useContent } from "@/lib/i18n/context";
 
 const pattern = [
   1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
@@ -14,6 +15,7 @@ const tiles = pattern.map((healthy, i) => ({
 }));
 
 export function FieldGrid() {
+  const { ui } = useContent();
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
@@ -29,8 +31,8 @@ export function FieldGrid() {
                 transition={{ duration: 0.15 }}
                 className="pointer-events-none absolute -top-8 left-1/2 z-10 -translate-x-1/2 rounded-md bg-foreground px-2 py-1 text-[10px] font-bold whitespace-nowrap text-background shadow-sm"
               >
-                Zone {tile.zone} · {tile.margin > 0 ? "+" : ""}
-                {tile.margin}% vs. break-even
+                {ui.zone} {tile.zone} · {tile.margin > 0 ? "+" : ""}
+                {tile.margin}% {ui.vsBreakEven}
               </motion.div>
             )}
           </AnimatePresence>

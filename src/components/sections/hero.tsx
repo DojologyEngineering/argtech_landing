@@ -8,7 +8,7 @@ import { Press } from "@/components/motion/press";
 import { Magnetic } from "@/components/motion/magnetic";
 import { FieldGrid } from "@/components/motion/field-grid";
 import { wordVariant, fadeUp } from "@/lib/motion";
-import { hero } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
 
 function AnimatedHeadline({ text }: { text: string }) {
   const lines = text.split("\n");
@@ -32,8 +32,23 @@ function AnimatedHeadline({ text }: { text: string }) {
 }
 
 export function Hero() {
+  const { hero, ui } = useContent();
   return (
     <section id="hero" className="relative overflow-hidden">
+      {/* Continues the dotted texture that peeks through the desktop
+          header's rounded corners, fading out before the fold. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 hidden h-full lg:block"
+        style={{
+          backgroundImage: "radial-gradient(var(--accent) 1px, transparent 1px)",
+          backgroundSize: "12px 12px",
+          opacity: 0.4,
+          maskImage: "linear-gradient(to bottom, black, transparent)",
+          WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+        }}
+      />
+
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 py-14 md:grid-cols-[1.15fr_1fr] md:py-20">
         <div className="flex flex-col gap-7">
           <motion.div
@@ -101,7 +116,7 @@ export function Hero() {
               </span>
               <span className="flex items-center gap-1.5 text-xs font-bold text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                LIVE
+                {ui.live}
               </span>
             </div>
 
@@ -110,11 +125,11 @@ export function Hero() {
             <div className="flex items-center gap-5 text-xs font-semibold text-muted-foreground">
               <span className="flex items-center gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-sm bg-primary/70" />
-                Above break-even
+                {ui.aboveBreakEven}
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-sm bg-accent-foreground/50" />
-                Below break-even
+                {ui.belowBreakEven}
               </span>
             </div>
           </div>

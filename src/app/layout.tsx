@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Bricolage_Grotesque } from "next/font/google";
+import { Geist, Geist_Mono, Bricolage_Grotesque, Kantumruy_Pro } from "next/font/google";
 import { MotionConfig } from "motion/react";
 import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageProvider } from "@/lib/i18n/context";
+import { IntroLoader } from "@/components/motion/intro-loader";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,6 +22,14 @@ const bricolageGrotesque = Bricolage_Grotesque({
   weight: ["300", "500", "600"],
 });
 
+// Fallback-only: appended after the brand fonts in globals.css so Khmer
+// glyphs render cleanly while Latin text keeps using Bricolage/Geist.
+const kantumruyPro = Kantumruy_Pro({
+  variable: "--font-khmer",
+  subsets: ["khmer"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "ARG TECH — Smart Farming. Sustainable Future.",
   description:
@@ -31,11 +41,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${bricolageGrotesque.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${bricolageGrotesque.variable} ${kantumruyPro.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <MotionConfig reducedMotion="user">{children}</MotionConfig>
+          <LanguageProvider>
+            <MotionConfig reducedMotion="user">
+              <IntroLoader />
+              {children}
+            </MotionConfig>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

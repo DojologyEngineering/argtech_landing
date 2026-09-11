@@ -1,8 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { PhoneMockup } from "@/components/motion/phone-mockup";
 import { HoverCard } from "@/components/motion/hover-card";
-import { appShowcase } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
 
 const gallery = [
   { src: "/app/app_3d.png", alt: "ARG TECH app, 3D render" },
@@ -11,6 +13,7 @@ const gallery = [
 ];
 
 export function AppShowcase() {
+  const { appShowcase } = useContent();
   return (
     <section className="mx-auto max-w-6xl px-6 py-16 md:py-20">
       <ScrollReveal className="mb-14 flex max-w-xl flex-col gap-4">

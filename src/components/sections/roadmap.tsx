@@ -4,9 +4,10 @@ import { motion } from "motion/react";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { StaggerGroup } from "@/components/motion/stagger-group";
 import { fadeUp } from "@/lib/motion";
-import { roadmap } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
 
 export function Roadmap() {
+  const { roadmap, ui } = useContent();
   return (
     <section className="mx-auto max-w-3xl px-6 py-16 md:py-20">
       <ScrollReveal className="mb-16 flex max-w-xl flex-col gap-4">
@@ -43,7 +44,7 @@ export function Roadmap() {
                 <h3 className="text-lg font-bold text-foreground">{stage.title}</h3>
                 {stage.current && (
                   <span className="w-fit rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold tracking-wide text-accent-foreground uppercase">
-                    Current stage
+                    {ui.currentStage}
                   </span>
                 )}
               </div>

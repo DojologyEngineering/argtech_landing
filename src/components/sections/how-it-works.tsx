@@ -5,9 +5,10 @@ import { motion } from "motion/react";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { StaggerGroup } from "@/components/motion/stagger-group";
 import { fadeUp } from "@/lib/motion";
-import { howItWorks } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
 
 export function HowItWorks() {
+  const { howItWorks } = useContent();
   const [active, setActive] = useState(0);
 
   return (

@@ -6,8 +6,10 @@ import { motion, AnimatePresence } from "motion/react";
 import { Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Press } from "@/components/motion/press";
+import { useContent } from "@/lib/i18n/context";
 
 export function ThemeToggle() {
+  const { ui } = useContent();
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -20,7 +22,7 @@ export function ThemeToggle() {
       <Button
         variant="ghost"
         size="icon"
-        aria-label="Toggle theme"
+        aria-label={ui.toggleTheme}
         onClick={() => setTheme(isDark ? "light" : "dark")}
         className="relative overflow-hidden"
       >

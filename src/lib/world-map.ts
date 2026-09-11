@@ -3,7 +3,6 @@ import DottedMap from "dotted-map";
 const HQ = {
   lat: 11.5564,
   lng: 104.9282,
-  label: "Phnom Penh, Cambodia",
   href: "https://maps.app.goo.gl/r18mhEZWyU3N3CmAA",
 };
 
@@ -11,7 +10,7 @@ interface PinData {
   name: string;
 }
 
-export function generateWorldMap() {
+export function generateWorldMap(hqLabel: string) {
   const map = new DottedMap({ height: 70, grid: "diagonal" });
 
   map.addPin({
@@ -46,7 +45,7 @@ export function generateWorldMap() {
 
   return {
     svg,
-    label: HQ.label,
+    label: hqLabel,
     href: HQ.href,
     pin: pin ? { xPct: (pin.x / width) * 100, yPct: (pin.y / height) * 100 } : null,
   };

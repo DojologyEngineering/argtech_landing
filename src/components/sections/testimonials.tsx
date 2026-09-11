@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Quote } from "lucide-react";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import { testimonials } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
 
 export function Testimonials() {
+  const { testimonials, testimonialsHeader, ui } = useContent();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -22,10 +23,10 @@ export function Testimonials() {
     <section className="mx-auto max-w-3xl px-6 py-16 md:py-20">
       <ScrollReveal className="mb-10 flex flex-col items-center gap-4 text-center">
         <span className="text-xs font-bold tracking-[0.14em] text-primary uppercase">
-          From the field
+          {testimonialsHeader.eyebrow}
         </span>
         <h2 className="font-heading text-3xl font-semibold text-balance text-foreground md:text-4xl">
-          What early growers are seeing.
+          {testimonialsHeader.heading}
         </h2>
       </ScrollReveal>
 
@@ -58,7 +59,7 @@ export function Testimonials() {
             <button
               key={t.name + i}
               type="button"
-              aria-label={`Show testimonial ${i + 1}`}
+              aria-label={`${ui.showTestimonial} ${i + 1}`}
               onClick={() => setIndex(i)}
               className="flex items-center justify-center p-1"
             >

@@ -4,9 +4,10 @@ import { motion } from "motion/react";
 import { CountUp } from "@/components/motion/count-up";
 import { StatRing } from "@/components/motion/stat-ring";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import { stats } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
 
 export function Stats() {
+  const { stats } = useContent();
   return (
     <section className="bg-primary py-14 text-primary-foreground">
       <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-16 px-6 sm:justify-between">

@@ -1,10 +1,14 @@
+"use client";
+
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { MapPin } from "@/components/motion/map-pin";
 import { HoverCard } from "@/components/motion/hover-card";
 import { generateWorldMap } from "@/lib/world-map";
+import { useContent } from "@/lib/i18n/context";
 
 export function GlobalReach() {
-  const { svg, pin, label, href } = generateWorldMap();
+  const { globalReach } = useContent();
+  const { svg, pin, label, href } = generateWorldMap(globalReach.hqLabel);
 
   return (
     <section id="locations" className="border-y border-border/70 bg-muted/40">
@@ -12,15 +16,13 @@ export function GlobalReach() {
         <div className="grid items-center gap-10 md:grid-cols-2">
           <ScrollReveal className="flex max-w-xl flex-col gap-4">
             <span className="text-xs font-bold tracking-[0.14em] text-primary uppercase">
-              Where we operate
+              {globalReach.eyebrow}
             </span>
             <h2 className="font-heading text-3xl leading-tight font-semibold text-balance text-foreground md:text-4xl">
-              Based in Cambodia, built for growers everywhere.
+              {globalReach.heading}
             </h2>
             <p className="text-[15px] leading-relaxed text-muted-foreground">
-              Our team works out of Phnom Penh, partnering directly with farms
-              across the region to keep the platform grounded in what actually
-              happens in the field.
+              {globalReach.body}
             </p>
           </ScrollReveal>
 

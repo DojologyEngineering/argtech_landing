@@ -6,11 +6,12 @@ import { Mail, Phone, Send } from "lucide-react";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { HoverCard } from "@/components/motion/hover-card";
 import { ContactForm } from "@/components/contact-form";
-import { contact } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
 
 const icons = { mail: Mail, phone: Phone, telegram: Send };
 
 export function Contact() {
+  const { contact } = useContent();
   return (
     <section id="contact-info" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
       <div className="grid gap-6 lg:grid-cols-[3fr_2fr]">

@@ -4,9 +4,10 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { HoverCard } from "@/components/motion/hover-card";
-import { about } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
 
 export function About() {
+  const { about } = useContent();
   return (
     <section id="about" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
       <div className="grid gap-14 md:grid-cols-[1fr_1fr]">

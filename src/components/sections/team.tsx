@@ -1,12 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { Globe } from "lucide-react";
 import { LinkedinIcon } from "@/components/icons/linkedin";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { HoverCard } from "@/components/motion/hover-card";
 import { Press } from "@/components/motion/press";
-import { team } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
 
 export function Team() {
+  const { team, ui } = useContent();
   return (
     <section id="team" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
       <ScrollReveal className="mb-14 flex max-w-xl flex-col gap-4">
@@ -32,17 +36,30 @@ export function Team() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[oklch(20%_0.03_154.2)]/95 via-[oklch(20%_0.03_154.2)]/10 to-transparent" />
 
-                <Press className="absolute top-4 right-4">
-                  <Link
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${member.name} on LinkedIn`}
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-[oklch(97%_0.01_90)]/15 text-[oklch(97%_0.01_90)] backdrop-blur-sm transition-colors hover:bg-[oklch(97%_0.01_90)]/25"
-                  >
-                    <LinkedinIcon className="h-4 w-4" />
-                  </Link>
-                </Press>
+                <div className="absolute top-4 right-4 flex items-center gap-2">
+                  <Press>
+                    <Link
+                      href={member.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={ui.portfolioWebsite(member.name)}
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-[oklch(97%_0.01_90)]/15 text-[oklch(97%_0.01_90)] backdrop-blur-sm transition-colors hover:bg-[oklch(97%_0.01_90)]/25"
+                    >
+                      <Globe className="h-4 w-4" />
+                    </Link>
+                  </Press>
+                  <Press>
+                    <Link
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={ui.onLinkedIn(member.name)}
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-[oklch(97%_0.01_90)]/15 text-[oklch(97%_0.01_90)] backdrop-blur-sm transition-colors hover:bg-[oklch(97%_0.01_90)]/25"
+                    >
+                      <LinkedinIcon className="h-4 w-4" />
+                    </Link>
+                  </Press>
+                </div>
 
                 <div className="absolute inset-x-0 bottom-0 flex flex-col gap-0.5 p-5">
                   <h3 className="font-heading text-xl font-semibold text-[oklch(97%_0.01_90)]">

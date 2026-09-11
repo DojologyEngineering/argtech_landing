@@ -1,21 +1,26 @@
+"use client";
+
 import type { ReactNode } from "react";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import { revenueModel } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
+import type { Content } from "@/lib/i18n/en";
 
-type Stream = (typeof revenueModel.streams)[number];
-
-const rows: { label: string; render: (s: Stream) => ReactNode }[] = [
-  {
-    label: "Fee",
-    render: (s) => (
-      <span className="font-heading font-semibold text-primary">{s.fee}</span>
-    ),
-  },
-  { label: "We get", render: (s) => s.weGet },
-  { label: "Farmer gets", render: (s) => s.farmerGets },
-];
+type Stream = Content["revenueModel"]["streams"][number];
 
 export function RevenueModel() {
+  const { revenueModel, ui } = useContent();
+
+  const rows: { label: string; render: (s: Stream) => ReactNode }[] = [
+    {
+      label: ui.feeLabel,
+      render: (s) => (
+        <span className="font-heading font-semibold text-primary">{s.fee}</span>
+      ),
+    },
+    { label: ui.weGetLabel, render: (s) => s.weGet },
+    { label: ui.farmerGetsLabel, render: (s) => s.farmerGets },
+  ];
+
   return (
     <section id="partners" className="border-y border-border/70 bg-muted/40">
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">

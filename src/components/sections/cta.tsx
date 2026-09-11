@@ -1,11 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { Magnetic } from "@/components/motion/magnetic";
 import { fadeScale } from "@/lib/motion";
-import { cta } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
 
 export function CTA() {
+  const { cta } = useContent();
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 pb-16 md:pb-20">
       <ScrollReveal variants={fadeScale}>

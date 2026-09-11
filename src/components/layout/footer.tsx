@@ -1,13 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import { MapPin, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/logo";
-import { footer } from "@/lib/mock-data";
+import { useContent } from "@/lib/i18n/context";
 
 // Fixed brand green/cream (not the theme-swappable --primary/--foreground
 // tokens) so the footer stays a consistent dark anchor in both light and
 // dark mode — see globals.css for where these same values are derived.
 
 export function Footer() {
+  const { footer } = useContent();
   return (
     <footer className="relative overflow-hidden bg-[oklch(36.9%_0.07_154.2)] text-[oklch(95.8%_0.012_91.5)]">
       <span
@@ -17,7 +20,7 @@ export function Footer() {
         ARG TECH
       </span>
 
-      <div className="relative mx-auto max-w-6xl px-6 pt-16 pb-10 sm:pt-20">
+      <div className="relative mx-auto max-w-6xl px-6 pt-16 pb-28 sm:pt-20 md:pb-10">
         <div className="grid gap-10 sm:grid-cols-2 sm:gap-8 md:grid-cols-[1.3fr_repeat(3,1fr)] md:gap-12">
           <div className="flex flex-col gap-5">
             <Logo

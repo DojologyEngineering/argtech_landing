@@ -8,10 +8,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Press } from "@/components/motion/press";
+import { useContent } from "@/lib/i18n/context";
 
 type Status = "idle" | "submitting" | "success";
 
 export function ContactForm() {
+  const { ui } = useContent();
   const [status, setStatus] = useState<Status>("idle");
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 
@@ -52,9 +54,9 @@ export function ContactForm() {
               <CheckCircle2 className="h-7 w-7 text-accent-foreground" />
             </motion.div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-lg font-bold text-foreground">Message sent</h3>
+              <h3 className="text-lg font-bold text-foreground">{ui.messageSent}</h3>
               <p className="max-w-xs text-sm text-muted-foreground">
-                Thanks for reaching out — we&apos;ll get back to you shortly.
+                {ui.messageSentBody}
               </p>
             </div>
             <Press>
@@ -64,7 +66,7 @@ export function ContactForm() {
                 onClick={() => setStatus("idle")}
                 className="mt-1"
               >
-                Send another message
+                {ui.sendAnotherMessage}
               </Button>
             </Press>
           </motion.div>
@@ -80,50 +82,50 @@ export function ContactForm() {
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="flex flex-col gap-2">
-                <Label htmlFor="contact-name">Name</Label>
+                <Label htmlFor="contact-name">{ui.formName}</Label>
                 <Input
                   id="contact-name"
                   required
                   value={form.name}
                   onChange={update("name")}
-                  placeholder="Jane Doe"
+                  placeholder={ui.formNamePlaceholder}
                   className="h-10"
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="contact-email">Email</Label>
+                <Label htmlFor="contact-email">{ui.formEmail}</Label>
                 <Input
                   id="contact-email"
                   type="email"
                   required
                   value={form.email}
                   onChange={update("email")}
-                  placeholder="jane@farm.com"
+                  placeholder={ui.formEmailPlaceholder}
                   className="h-10"
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-2">
-              <Label htmlFor="contact-subject">Subject</Label>
+              <Label htmlFor="contact-subject">{ui.formSubject}</Label>
               <Input
                 id="contact-subject"
                 required
                 value={form.subject}
                 onChange={update("subject")}
-                placeholder="Piloting on a 200-acre operation"
+                placeholder={ui.formSubjectPlaceholder}
                 className="h-10"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <Label htmlFor="contact-message">Message</Label>
+              <Label htmlFor="contact-message">{ui.formMessage}</Label>
               <Textarea
                 id="contact-message"
                 required
                 value={form.message}
                 onChange={update("message")}
-                placeholder="Tell us a bit about your fields and what you're looking for..."
+                placeholder={ui.formMessagePlaceholder}
                 className="min-h-32"
               />
             </div>
@@ -135,7 +137,7 @@ export function ContactForm() {
                 disabled={status === "submitting"}
                 className="h-11 px-7 text-[15px] font-semibold"
               >
-                {status === "submitting" ? "Sending…" : "Send message"}
+                {status === "submitting" ? ui.sending : ui.sendMessage}
               </Button>
             </Press>
           </motion.form>
