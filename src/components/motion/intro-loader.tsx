@@ -7,10 +7,17 @@ import { useContent } from "@/lib/i18n/context";
 
 const WORDMARK = "ARG TECH";
 
-const FILL_MS = 1700;
-const EXIT_DELAY_MS = FILL_MS + 100;
+// The bar creeps toward this cap on its own (so it always reads as "still
+// working") but only actually completes once the page is confirmed ready —
+// see the readiness effect below. It never reaches 100% by itself.
+const SELF_FILL_CAP = 92;
+const SELF_FILL_MS = 1800;
+// Floor so the loader never flashes for a handful of ms on a fast/cached
+// load, and ceiling so a hung resource can't leave it stuck forever.
+const MIN_DISPLAY_MS = 900;
+const MAX_WAIT_MS = 4000;
+const EXIT_DELAY_MS = 150;
 const WIPE_MS = 600;
-const REMOVE_MS = EXIT_DELAY_MS + WIPE_MS;
 
 const wordmarkContainer: Variants = {
   hidden: {},
@@ -50,8 +57,13 @@ export function IntroLoader() {
     if (skip) setShow(false);
   }, []);
 
-  // Timer/animation lifecycle, kept in its own effect so it always runs
-  // fully once `show` flips true.
+  // Dismissal is gated on the page actually being ready — fonts decoded and
+  // window "load" fired (all eagerly-loaded resources in, lazy below-fold
+  // images excluded, which is exactly the above-the-fold scope this splash
+  // is meant to cover) — not a fixed clock. A fixed timer means the loader
+  // can disappear before a slow connection has actually finished bringing
+  // the real page in, which just relocates the "blank/unsettled page"
+  // problem to *after* the loader instead of fixing it.
   useEffect(() => {
     if (!show) return;
 
@@ -59,25 +71,55 @@ export function IntroLoader() {
 
     const start = performance.now();
     let raf = 0;
+    let settled = false;
+    let finishTimer = 0;
+    let exitTimer = 0;
+    let removeTimer = 0;
+
     function tick(now: number) {
-      const pct = Math.min(100, Math.round(((now - start) / FILL_MS) * 100));
-      setProgress(pct);
-      if (pct < 100) raf = requestAnimationFrame(tick);
+      if (settled) return;
+      const pct = Math.min(SELF_FILL_CAP, Math.round(((now - start) / SELF_FILL_MS) * SELF_FILL_CAP));
+      setProgress((prev) => Math.max(prev, pct));
+      raf = requestAnimationFrame(tick);
     }
     raf = requestAnimationFrame(tick);
 
+    function finishLoading() {
+      if (settled) return;
+      settled = true;
+      cancelAnimationFrame(raf);
+
+      const elapsed = performance.now() - start;
+      const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
+      finishTimer = window.setTimeout(() => {
+        setProgress(100);
+        exitTimer = window.setTimeout(() => setExiting(true), EXIT_DELAY_MS);
+        removeTimer = window.setTimeout(() => {
+          setShow(false);
+          document.body.style.overflow = "";
+        }, EXIT_DELAY_MS + WIPE_MS);
+      }, remaining);
+    }
+
     const captionTimer1 = window.setTimeout(() => setCaptionIndex(1), 550);
     const captionTimer2 = window.setTimeout(() => setCaptionIndex(2), 1150);
-    const exitTimer = window.setTimeout(() => setExiting(true), EXIT_DELAY_MS);
-    const removeTimer = window.setTimeout(() => {
-      setShow(false);
-      document.body.style.overflow = "";
-    }, REMOVE_MS);
+
+    const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+    const pageLoaded =
+      document.readyState === "complete"
+        ? Promise.resolve()
+        : new Promise<void>((resolve) => window.addEventListener("load", () => resolve(), { once: true }));
+    Promise.all([fontsReady, pageLoaded]).then(finishLoading);
+
+    const maxWaitTimer = window.setTimeout(finishLoading, MAX_WAIT_MS);
 
     return () => {
+      settled = true;
       cancelAnimationFrame(raf);
       window.clearTimeout(captionTimer1);
       window.clearTimeout(captionTimer2);
+      window.clearTimeout(maxWaitTimer);
+      window.clearTimeout(finishTimer);
       window.clearTimeout(exitTimer);
       window.clearTimeout(removeTimer);
       document.body.style.overflow = "";
