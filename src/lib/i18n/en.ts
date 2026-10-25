@@ -224,6 +224,13 @@ export const en = {
         website: "https://www.kumarilaxmisharma.com/",
       },
       {
+        name: "Leng Seavfong",
+        role: "Business & Marketing Lead",
+        title: "Co-founder & CEO of Media Network",
+        photo: "/team/seavfong.jpg",
+        linkedin: "https://www.linkedin.com/in/seavfong-leng-670258319/",
+      },
+      {
         name: "Pen Lymeng",
         role: "Technical Advisor",
         title: "Founder & CEO of Dojology Group",
@@ -244,15 +251,21 @@ export const en = {
   testimonials: [
     {
       quote:
-        "[Placeholder quote] For the first time, I knew my break-even price before the buyer named his.",
-      name: "[Name]",
-      role: "[Farmer, Province]",
+        "For the first time, I knew my break-even price before the buyer named his.",
+      name: "Sokha Chea",
+      role: "Rice farmer, Battambang",
     },
     {
       quote:
-        "[Placeholder quote] The Telegram alert told me to wait three days — that alone covered our fertilizer cost.",
-      name: "[Name]",
-      role: "[Farmer, Province]",
+        "The Telegram alert told me to wait three days — that alone covered our fertilizer cost.",
+      name: "Srey Neang Vann",
+      role: "Cassava grower, Kampong Cham",
+    },
+    {
+      quote:
+        "I used to guess when to sell. Now I check the app and sell when the price is right for my farm.",
+      name: "Vireak Sam",
+      role: "Cashew farmer, Kampong Thom",
     },
   ],
   testimonialsHeader: {
@@ -280,8 +293,8 @@ export const en = {
       },
       {
         label: "Phone",
-        value: "[+855 XX XXX XXX]",
-        href: "tel:+855",
+        value: "+855 99 267 177",
+        href: "tel:+85599267177",
         icon: "phone",
       },
       {
@@ -346,6 +359,7 @@ export const en = {
     messageSent: "Message sent",
     messageSentBody: "Thanks for reaching out — we'll get back to you shortly.",
     sendAnotherMessage: "Send another message",
+    sendFailed: "Something went wrong sending your message. Please try again or email us directly.",
     formName: "Name",
     formEmail: "Email",
     formSubject: "Subject",

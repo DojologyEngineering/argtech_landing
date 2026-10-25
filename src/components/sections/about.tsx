@@ -10,8 +10,8 @@ export function About() {
   const { about } = useContent();
   return (
     <section id="about" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <div className="grid gap-14 md:grid-cols-[1fr_1fr]">
-        <ScrollReveal className="flex flex-col gap-6">
+      <div className="flex flex-col gap-12 md:gap-14">
+        <ScrollReveal className="flex max-w-3xl flex-col gap-6">
           <span className="text-xs font-bold tracking-[0.14em] text-primary uppercase">
             {about.eyebrow}
           </span>
@@ -23,32 +23,44 @@ export function About() {
           </span>
           <div className="flex flex-col gap-4">
             {about.body.map((paragraph, i) => (
-              <p key={i} className="text-[15px] leading-relaxed text-muted-foreground">
+              <p
+                key={i}
+                className="text-[15px] leading-relaxed text-muted-foreground"
+              >
                 {paragraph}
               </p>
             ))}
           </div>
         </ScrollReveal>
 
-        <div className="flex flex-col gap-8">
-          <ScrollReveal delay={0.05}>
-            <HoverCard className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border">
-              <Image
-                src="/app/dashboard1.png"
-                alt="The ARG TECH dashboard"
-                fill
-                className="object-cover"
-                sizes="(min-width: 768px) 40vw, 90vw"
-              />
-            </HoverCard>
-          </ScrollReveal>
+        <ScrollReveal delay={0.05}>
+          <HoverCard className="w-full overflow-hidden rounded-2xl border border-border bg-card shadow-lg">
+            <div className="flex items-center gap-2 border-b border-black/5 bg-white px-4 py-3">
+              <span className="h-3 w-3 rounded-full bg-black/10" />
+              <span className="h-3 w-3 rounded-full bg-black/10" />
+              <span className="h-3 w-3 rounded-full bg-black/10" />
+              <span className="ml-2 truncate text-xs font-medium text-neutral-600">
+                ARG TECH — Admin
+              </span>
+            </div>
+            <Image
+              src="/app/dashboard1.png"
+              alt="The ARG TECH admin dashboard"
+              width={2880}
+              height={1636}
+              className="block h-auto w-full"
+              sizes="(min-width: 1152px) 1100px, 92vw"
+            />
+          </HoverCard>
+        </ScrollReveal>
 
+        <div className="grid gap-8 md:grid-cols-3">
           {about.values.map((value, i) => (
             <ScrollReveal key={value.title} delay={i * 0.08}>
               <motion.div
                 whileHover="hover"
                 initial="rest"
-                className="flex gap-5 border-t border-border pt-6"
+                className="flex h-full gap-5 border-t border-border pt-6"
               >
                 <motion.span
                   variants={{

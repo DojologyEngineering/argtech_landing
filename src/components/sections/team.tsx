@@ -22,7 +22,7 @@ export function Team() {
         </h2>
       </ScrollReveal>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {team.members.map((member, i) => (
           <ScrollReveal key={member.name} delay={i * 0.08}>
             <HoverCard className="group overflow-hidden rounded-2xl border border-border bg-card">
@@ -32,22 +32,24 @@ export function Team() {
                   alt={member.name}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[oklch(20%_0.03_154.2)]/95 via-[oklch(20%_0.03_154.2)]/10 to-transparent" />
 
                 <div className="absolute top-4 right-4 flex items-center gap-2">
-                  <Press>
-                    <Link
-                      href={member.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={ui.portfolioWebsite(member.name)}
-                      className="flex h-9 w-9 items-center justify-center rounded-full bg-[oklch(97%_0.01_90)]/15 text-[oklch(97%_0.01_90)] backdrop-blur-sm transition-colors hover:bg-[oklch(97%_0.01_90)]/25"
-                    >
-                      <Globe className="h-4 w-4" />
-                    </Link>
-                  </Press>
+                  {member.website && (
+                    <Press>
+                      <Link
+                        href={member.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={ui.portfolioWebsite(member.name)}
+                        className="flex h-9 w-9 items-center justify-center rounded-full bg-[oklch(97%_0.01_90)]/15 text-[oklch(97%_0.01_90)] backdrop-blur-sm transition-colors hover:bg-[oklch(97%_0.01_90)]/25"
+                      >
+                        <Globe className="h-4 w-4" />
+                      </Link>
+                    </Press>
+                  )}
                   <Press>
                     <Link
                       href={member.linkedin}

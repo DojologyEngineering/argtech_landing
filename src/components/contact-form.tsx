@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Press } from "@/components/motion/press";
 import { useContent } from "@/lib/i18n/context";
 
-type Status = "idle" | "submitting" | "success";
+type Status = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm() {
   const { ui } = useContent();
@@ -22,15 +22,21 @@ export function ContactForm() {
       setForm((f) => ({ ...f, [field]: e.target.value }));
   }
 
-  // NOTE: no backend wired up yet — this only simulates a send.
-  // Point this at a real endpoint (API route, Resend, Formspree, etc.) before launch.
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
-    window.setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error(String(res.status));
       setStatus("success");
       setForm({ name: "", email: "", subject: "", message: "" });
-    }, 700);
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -129,6 +135,12 @@ export function ContactForm() {
                 className="min-h-32"
               />
             </div>
+
+            {status === "error" && (
+              <p role="alert" className="text-sm text-destructive">
+                {ui.sendFailed}
+              </p>
+            )}
 
             <Press className="self-start">
               <Button
