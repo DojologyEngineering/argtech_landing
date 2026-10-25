@@ -11,14 +11,14 @@ export const en = {
     eyebrow: "Empowering Cambodia's smallholder farmers",
     headline: "Know your break-even.\nBefore you sell.",
     subhead:
-      "ARG TECH gives Cambodia's 1.85 million smallholder farming households the cost data they've never had — a verified break-even price before harvest, delivered in Khmer over Telegram, so the middleman doesn't set the price alone.",
+      "ARG TECH gives Cambodia's 1.85 million smallholder farming households the cost data they've never had, a verified break-even price before harvest, delivered in Khmer over Telegram, so the middleman doesn't set the price alone.",
     primaryCta: { label: "Talk to the team", href: "#contact" },
     secondaryCta: { label: "See how it works", href: "#solutions" },
-    fieldName: "Kampong Speu — Farmer Zones",
+    fieldName: "Kampong Speu, Farmer Zones",
     sensorReadout: {
       zone: "Zone 12 · Batch 04",
       value: "Break-even $0.42/kg",
-      note: "3¢ above market — hold 2 days",
+      note: "3¢ above market, hold 2 days",
     },
   },
 
@@ -52,7 +52,7 @@ export const en = {
   problemStatement: {
     eyebrow: "The problem",
     heading: "Every sale is a guess.",
-    body: "Cambodia's 1.85 million smallholder farmers negotiate blind — with zero verifiable cost data and no way to know if today's offer is a profit or a loss.",
+    body: "Cambodia's 1.85 million smallholder farmers negotiate blind, with zero verifiable cost data and no way to know if today's offer is a profit or a loss.",
   },
 
   features: {
@@ -61,18 +61,18 @@ export const en = {
     featured: {
       title: "ROI Engine",
       description:
-        "Every cost entry a Field Agent logs meets live market price references to calculate a definitive break-even floor — the one number that tells a farmer whether today's offer is a profit or a loss.",
+        "Every cost entry a Field Agent logs meets live market price references to calculate a definitive break-even floor, the one number that tells a farmer whether today's offer is a profit or a loss.",
     },
     items: [
       {
         title: "Field Capture",
         description:
-          "Field Agents log crop cost data during routine farm visits. No extra trips, no farmer effort — every visit builds a verified production record.",
+          "Field Agents log crop cost data during routine farm visits. No extra trips, no farmer effort, every visit builds a verified production record.",
       },
       {
         title: "Khmer Telegram Alerts",
         description:
-          "Break-even price, overspend warnings, and the right time to sell — delivered in Khmer over Telegram. No app to download, no new habit to learn.",
+          "Break-even price, overspend warnings, and the right time to sell, delivered in Khmer over Telegram. No app to download, no new habit to learn.",
       },
       {
         title: "Verified Buyer Matching",
@@ -85,7 +85,7 @@ export const en = {
   appShowcase: {
     eyebrow: "Field Agent app",
     heading: "The tool that builds every farmer's verified record.",
-    body: "Farmers don't need to download anything — Field Agents capture cost data, farmer profiles, and crop cycles from the field. Every entry feeds the ROI Engine and becomes part of a farmer's verified production history.",
+    body: "Farmers don't need to download anything, Field Agents capture cost data, farmer profiles, and crop cycles from the field. Every entry feeds the ROI Engine and becomes part of a farmer's verified production history.",
   },
 
   howItWorks: {
@@ -95,7 +95,7 @@ export const en = {
       {
         title: "Field Capture",
         description:
-          "A Field Agent logs cost data during a routine visit — seed, fertilizer, labor. No extra trips, no extra work for the farmer.",
+          "A Field Agent logs cost data during a routine visit, seed, fertilizer, labor. No extra trips, no extra work for the farmer.",
       },
       {
         title: "ROI Engine runs",
@@ -105,7 +105,7 @@ export const en = {
       {
         title: "Alert & match",
         description:
-          "The farmer gets a Khmer-language Telegram alert with their break-even price — and their verified harvest is matched to a real purchase order.",
+          "The farmer gets a Khmer-language Telegram alert with their break-even price, and their verified harvest is matched to a real purchase order.",
       },
     ],
   },
@@ -181,8 +181,8 @@ export const en = {
     heading: "Built for the 1.85 million households the market forgot.",
     recognition: "OneEarth NextGen Innovator 2026",
     body: [
-      "Cambodia's fruit and vegetable market is worth over $3.3 billion and growing faster than any other crop category — yet the smallholders growing it absorb 100% of the production risk with zero verifiable cost data. Every sale is a guess.",
-      "ARG TECH isn't another marketplace app farmers won't use. We work through what they already use — Telegram — and the people they already trust, starting with fruit and vegetable smallholders in Cambodia.",
+      "Cambodia's fruit and vegetable market is worth over $3.3 billion and growing faster than any other crop category, yet the smallholders growing it absorb 100% of the production risk with zero verifiable cost data. Every sale is a guess.",
+      "ARG TECH isn't another marketplace app farmers won't use. We work through what they already use, Telegram, and the people they already trust, starting with fruit and vegetable smallholders in Cambodia.",
     ],
     values: [
       {
@@ -198,7 +198,7 @@ export const en = {
       {
         title: "Built on trust",
         description:
-          "We grow through the community networks and NGO partners farmers already rely on — not cold outreach.",
+          "We grow through the community networks and NGO partners farmers already rely on, not cold outreach.",
       },
     ],
   },
@@ -257,7 +257,7 @@ export const en = {
     },
     {
       quote:
-        "The Telegram alert told me to wait three days — that alone covered our fertilizer cost.",
+        "The Telegram alert told me to wait three days, that alone covered our fertilizer cost.",
       name: "Srey Neang Vann",
       role: "Cassava grower, Kampong Cham",
     },
@@ -276,14 +276,14 @@ export const en = {
   cta: {
     heading: "See the ROI Engine on a real harvest.",
     subhead:
-      "Talk to the team — we'll walk through how break-even pricing works for your province.",
+      "Talk to the team, we'll walk through how break-even pricing works for your province.",
     primaryCta: { label: "Talk to the team", href: "#contact" },
   },
 
   contact: {
     eyebrow: "Get in touch",
     heading: "Talk to the team.",
-    body: "Questions about the platform, partnering as an NGO, or joining the pilot — reach us however's easiest.",
+    body: "Questions about the platform, partnering as an NGO, or joining the pilot, reach us however's easiest.",
     methods: [
       {
         label: "Email",
@@ -357,7 +357,7 @@ export const en = {
     weGetLabel: "We get",
     farmerGetsLabel: "Farmer gets",
     messageSent: "Message sent",
-    messageSentBody: "Thanks for reaching out — we'll get back to you shortly.",
+    messageSentBody: "Thanks for reaching out, we'll get back to you shortly.",
     sendAnotherMessage: "Send another message",
     sendFailed: "Something went wrong sending your message. Please try again or email us directly.",
     formName: "Name",

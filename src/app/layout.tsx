@@ -52,7 +52,7 @@ const kantumruyPro = Kantumruy_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "ARG TECH — Smart Farming. Sustainable Future.",
+  title: "ARG TECH: Smart Farming. Sustainable Future.",
   description:
     "ARG TECH fuses in-field sensors, satellite imagery, and weather modeling into one live map of your operation.",
 };

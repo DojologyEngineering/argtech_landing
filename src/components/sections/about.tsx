@@ -40,7 +40,7 @@ export function About() {
               <span className="h-3 w-3 rounded-full bg-black/10" />
               <span className="h-3 w-3 rounded-full bg-black/10" />
               <span className="ml-2 truncate text-xs font-medium text-neutral-600">
-                ARG TECH — Admin
+                ARG TECH Admin
               </span>
             </div>
             <Image

@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   }
 
   const text = [
-    "<b>📩 New contact message — ARG Tech</b>",
+    "<b>📩 New contact message: ARG Tech</b>",
     "",
     `<b>Name:</b> ${values.name}`,
     `<b>Email:</b> ${values.email}`,
