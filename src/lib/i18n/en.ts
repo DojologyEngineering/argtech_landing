@@ -276,8 +276,8 @@ export const en = {
   cta: {
     heading: "See the ROI Engine on a real harvest.",
     subhead:
-      "Talk to the team, we'll walk through how break-even pricing works for your province.",
-    primaryCta: { label: "Talk to the team", href: "#contact" },
+      "Explore the platform instantly as a field agent or a buyer. No booking needed.",
+    primaryCta: { label: "Try the demo" },
   },
 
   contact: {
@@ -340,7 +340,7 @@ export const en = {
   },
 
   ui: {
-    bookADemo: "Book a demo",
+    bookADemo: "Try live demo",
     openMenu: "Open menu",
     closeMenu: "Close menu",
     toggleTheme: "Toggle theme",
@@ -353,6 +353,14 @@ export const en = {
     zone: "Zone",
     vsBreakEven: "vs. break-even",
     currentStage: "Current stage",
+    demoTitle: "Try the demo",
+    demoSubtitle: "Pick the side of the platform you want to explore. Each demo opens in a new tab.",
+    demoAgentTitle: "Field Agent demo",
+    demoAgentBody: "Log farm visits, crop costs and farmer profiles from the field.",
+    demoBuyerTitle: "Buyer demo",
+    demoBuyerBody: "Browse verified harvests and place purchase orders.",
+    openDemo: "Open demo",
+    close: "Close",
     feeLabel: "Fee",
     weGetLabel: "We get",
     farmerGetsLabel: "Farmer gets",
@@ -385,6 +393,7 @@ export const en = {
       platform: "Platform",
       team: "Team",
       contact: "Contact",
+      demo: "Demo",
     },
   },
 };

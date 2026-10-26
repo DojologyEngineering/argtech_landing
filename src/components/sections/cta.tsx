@@ -1,14 +1,17 @@
 "use client";
 
-import Link from "next/link";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { DemoDialog } from "@/components/demo-dialog";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { Magnetic } from "@/components/motion/magnetic";
+import { LiveDot } from "@/components/motion/live-dot";
 import { fadeScale } from "@/lib/motion";
 import { useContent } from "@/lib/i18n/context";
 
 export function CTA() {
   const { cta } = useContent();
+  const [demoOpen, setDemoOpen] = useState(false);
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 pb-16 md:pb-20">
       <ScrollReveal variants={fadeScale}>
@@ -21,17 +24,18 @@ export function CTA() {
           </p>
           <Magnetic className="mt-2 inline-block">
             <Button
-              render={<Link href={cta.primaryCta.href} />}
-              nativeButton={false}
+              onClick={() => setDemoOpen(true)}
               size="lg"
               variant="secondary"
-              className="h-11 px-7 text-[15px] font-semibold"
+              className="demo-attention h-11 gap-2 px-7 text-[15px] font-semibold"
             >
+              <LiveDot />
               {cta.primaryCta.label}
             </Button>
           </Magnetic>
         </div>
       </ScrollReveal>
+      <DemoDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </section>
   );
 }

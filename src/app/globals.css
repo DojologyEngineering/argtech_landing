@@ -148,3 +148,27 @@
     scroll-behavior: auto;
   }
 }
+/* Expanding ring that draws the eye to the demo buttons. */
+@keyframes demo-ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--accent) 75%, transparent);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 14px transparent;
+  }
+}
+
+.demo-attention {
+  animation: demo-ring 2.2s ease-out infinite;
+}
+
+.demo-attention:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-attention {
+    animation: none;
+  }
+}

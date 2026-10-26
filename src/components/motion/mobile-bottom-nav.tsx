@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Home, Sprout, Users, Send } from "lucide-react";
+import { Home, Sprout, Users, Send, Play } from "lucide-react";
+import { DemoDialog } from "@/components/demo-dialog";
 import { Press } from "@/components/motion/press";
 import { cn } from "@/lib/utils";
 import { useContent } from "@/lib/i18n/context";
@@ -16,6 +17,7 @@ export function MobileBottomNav() {
     { id: "contact-info", label: ui.mobileNav.contact, icon: Send },
   ];
   const [active, setActive] = useState("hero");
+  const [demoOpen, setDemoOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -79,7 +81,19 @@ export function MobileBottomNav() {
             </Press>
           );
         })}
+        <Press>
+          <button
+            type="button"
+            onClick={() => setDemoOpen(true)}
+            aria-label={ui.bookADemo}
+            className="demo-attention relative flex h-12 w-14 flex-col items-center justify-center gap-0.5 rounded-full bg-accent text-accent-foreground"
+          >
+            <Play className="h-4.5 w-4.5 fill-current" />
+            <span className="text-[9px] font-bold">{ui.mobileNav.demo}</span>
+          </button>
+        </Press>
       </div>
+      <DemoDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </nav>
   );
 }

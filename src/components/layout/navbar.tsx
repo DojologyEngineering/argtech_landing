@@ -5,10 +5,12 @@ import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DemoDialog } from "@/components/demo-dialog";
 import { Logo } from "@/components/logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageToggle } from "@/components/language-toggle";
 import { HamburgerIcon } from "@/components/motion/hamburger-icon";
+import { LiveDot } from "@/components/motion/live-dot";
 import { Press } from "@/components/motion/press";
 import { staggerContainer, fadeUp } from "@/lib/motion";
 import { useContent } from "@/lib/i18n/context";
@@ -16,6 +18,7 @@ import { useContent } from "@/lib/i18n/context";
 export function Navbar() {
   const { navLinks, ui } = useContent();
   const [open, setOpen] = useState(false);
+  const [demoOpen, setDemoOpen] = useState(false);
   const { scrollY } = useScroll();
   const headerHeight = useTransform(scrollY, [0, 80], [64, 56]);
   const headerShadow = useTransform(
@@ -69,11 +72,11 @@ export function Navbar() {
             <ThemeToggle />
             <Press className="hidden sm:inline-block">
               <Button
-                render={<Link href="#contact" />}
-                nativeButton={false}
+                onClick={() => setDemoOpen(true)}
                 size="lg"
-                className="h-9 px-5 font-semibold"
+                className="demo-attention h-9 gap-2 px-5 font-semibold"
               >
+                <LiveDot />
                 {ui.bookADemo}
               </Button>
             </Press>
@@ -116,24 +119,25 @@ export function Navbar() {
             <div className="flex items-center gap-3">
               <LanguageToggle />
               <ThemeToggle />
-              <div className="flex items-center overflow-hidden rounded-full">
+              <div className="demo-attention flex items-center overflow-hidden rounded-full">
                 <Press>
                   <Button
-                    render={<Link href="#contact" />}
-                    nativeButton={false}
-                    className="h-10 rounded-none rounded-l-full border-0 pr-4 pl-5 font-semibold"
+                    onClick={() => setDemoOpen(true)}
+                    className="h-10 gap-2 rounded-none rounded-l-full border-0 pr-4 pl-5 font-semibold"
                   >
+                    <LiveDot />
                     {ui.bookADemo}
                   </Button>
                 </Press>
                 <Press>
-                  <Link
-                    href="#contact"
+                  <button
+                    type="button"
+                    onClick={() => setDemoOpen(true)}
                     aria-label={ui.bookADemo}
                     className="flex h-10 w-10 items-center justify-center bg-primary-foreground text-primary transition-opacity hover:opacity-90"
                   >
                     <ArrowUpRight className="h-4 w-4" />
-                  </Link>
+                  </button>
                 </Press>
               </div>
             </div>
@@ -186,11 +190,14 @@ export function Navbar() {
                 ))}
                 <motion.div variants={fadeUp} className="px-3 pt-3 sm:hidden">
                   <Button
-                    render={<Link href="#contact" onClick={() => setOpen(false)} />}
-                    nativeButton={false}
+                    onClick={() => {
+                      setOpen(false);
+                      setDemoOpen(true);
+                    }}
                     size="lg"
-                    className="h-10 w-full font-semibold"
+                    className="demo-attention h-10 w-full gap-2 font-semibold"
                   >
+                    <LiveDot />
                     {ui.bookADemo}
                   </Button>
                 </motion.div>
@@ -199,6 +206,7 @@ export function Navbar() {
           </>
         )}
       </AnimatePresence>
+      <DemoDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </>
   );
 }
